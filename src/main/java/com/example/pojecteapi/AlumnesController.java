@@ -18,6 +18,7 @@ public class AlumnesController {
     }
     @GetMapping("/alumnes/modul/faltes")
     public ArrayList<AlumnesModFaltes> llistatAlModFal(){
+        //trucada al calcul de faltes
         ArrayList<AlumnesModFaltes> a = new ArrayList<>();
         a.add(new AlumnesModFaltes("David", "Rosal", "M01", "17%"));
         a.add(new AlumnesModFaltes("Marco", "Laureano", "M02", "15%"));
@@ -28,6 +29,7 @@ public class AlumnesController {
 
     @GetMapping("alumnes/grup/modul/faltes")
     public ArrayList<AlumnesGrupModFaltes> llistatAlGrupModFal(){
+        //trucada al calcul de faltes
         ArrayList<AlumnesGrupModFaltes> a = new ArrayList<>();
         //si grup o modul no valid error controlat
         a.add(new AlumnesGrupModFaltes("David", "Rosal","DAM", "M01", "17%"));
@@ -46,4 +48,7 @@ public class AlumnesController {
         return a;
     }
 
+//        calcula el % de faltes de cada alumne segons el numero de h faltades
+//    public String calculFaltes(ArrayList<horari> horari, String alumneId, int hFaltades){
+//    }
 }
