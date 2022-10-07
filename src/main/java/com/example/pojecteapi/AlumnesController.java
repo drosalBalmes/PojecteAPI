@@ -38,4 +38,12 @@ public class AlumnesController {
 
     }
 
+    @GetMapping("alumnes/id")
+    public ArrayList<AlumnesId> llistatAlumnesId(){
+        ArrayList<AlumnesId> a = new ArrayList<>();
+        a.add(new AlumnesId("Alberto", "Rodrigo", "12345678C"));
+        a.add(new AlumnesId("Gofre", "Sirope", "23456781D"));
+        return a;
+    }
+
 }
