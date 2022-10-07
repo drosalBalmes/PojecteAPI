@@ -16,4 +16,13 @@ public class AlumnesController {
         a.add(new Alumnes("Lote","Gatorate","DAW"));
         return a;
     }
+    @GetMapping("/alumnes/modul/faltes")
+    public ArrayList<AlumnesModFaltes> llistatAlModFal(){
+        ArrayList<AlumnesModFaltes> a = new ArrayList<>();
+        a.add(new AlumnesModFaltes("David", "Rosal", "M01", "17%"));
+        a.add(new AlumnesModFaltes("Marco", "Laureano", "M02", "15%"));
+        a.add(new AlumnesModFaltes("Marco", "Laureano", "M10", "20%"));
+        a.add(new AlumnesModFaltes("Pau", "Chacon", "M13", "24%"));
+        return a;
+    }
 }
