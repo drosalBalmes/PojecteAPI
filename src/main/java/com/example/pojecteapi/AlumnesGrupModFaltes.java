@@ -3,16 +3,16 @@ package com.example.pojecteapi;
 public class AlumnesGrupModFaltes {
     private String nom;
     private String cognom;
+    private String grup;
     private String modul;
     private String faltesPercent;
-    private String grup;
 
     public AlumnesGrupModFaltes(String nom, String cognom, String grup, String modul, String faltesPercent) {
         this.nom = nom;
         this.cognom = cognom;
+        this.grup = grup;
         this.modul = modul;
         this.faltesPercent = faltesPercent;
-        this.grup = grup;
     }
 
     public String getNom() {
