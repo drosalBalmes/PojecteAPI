@@ -1,19 +1,19 @@
 package com.example.pojecteapi;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
 @RestController
+
 public class AlumnesController {
     @GetMapping("/alumnes")
     public ArrayList<Alumnes> llistatAlumnes(){
         ArrayList<Alumnes> a = new ArrayList<>();
-        a.add(new Alumnes("David","Rosal", "DAM"));
-        a.add(new Alumnes("Waneta","Bytheway","DAW"));
-        a.add(new Alumnes("Marco","Laureano","DAM"));
-        a.add(new Alumnes("Lote","Gatorate","DAW"));
+        a.add(new Alumnes("David","Rosal","emailrandom@jaumebalmes.net", "DAM",1));
+        a.add(new Alumnes("Waneta","Bytheway","emailrandom@jaumebalmes.net", "DAM",1));
+        a.add(new Alumnes("Marco","Laureano","emailrandom@jaumebalmes.net", "ASIX",1));
+        a.add(new Alumnes("Lote","Gatorate","emailrandom@jaumebalmes.net", "DAW",1));
         return a;
     }
     @GetMapping("/alumnes/modul/faltes")
@@ -41,14 +41,24 @@ public class AlumnesController {
     }
 
     @GetMapping("alumnes/id")
-    public ArrayList<AlumnesId> llistatAlumnesId(){
+    public ArrayList<AlumnesId> llistatAlumnesId() {
         ArrayList<AlumnesId> a = new ArrayList<>();
         a.add(new AlumnesId("Alberto", "Rodrigo", "12345678C"));
         a.add(new AlumnesId("Gofre", "Sirope", "23456781D"));
         return a;
     }
 
-//        calcula el % de faltes de cada alumne segons el numero de h faltades
-//    public String calculFaltes(ArrayList<horari> horari, String alumneId, int hFaltades){
-//    }
+    //metode alumnes/grup
+    @GetMapping("alumnes/{grup}")
+    public ArrayList<Alumnes> llistatAlumnesGrup(@PathVariable String grup){
+        ArrayList<Alumnes> alumnes = llistatAlumnes();
+        ArrayList<Alumnes> alumnesGrup = new ArrayList<>();
+        for (Alumnes a: alumnes) {
+            if (a.getGrup().equals(grup)){
+                alumnesGrup.add(a);
+            }
+        }
+        return alumnesGrup;
+    }
+
 }
