@@ -1,8 +1,9 @@
-package com.example.pojecteapi;
+package com.example.pojecteapi.controllers;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import com.example.pojecteapi.HorariGrup;
 import org.springframework.web.bind.annotation.GetMapping;
 
 public class HorariController {
