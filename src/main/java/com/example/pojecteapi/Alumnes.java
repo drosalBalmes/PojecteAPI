@@ -1,6 +1,16 @@
 package com.example.pojecteapi;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Alumnes {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String nom;
     private String cognoms;
     private String email;
@@ -15,6 +25,17 @@ public class Alumnes {
         this.cicle = cicle;
         this.curs = curs;
         this.grup = cicle + curs;
+    }
+
+    public Alumnes(){
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getNom() {
@@ -63,5 +84,18 @@ public class Alumnes {
 
     public void setGrup(String grup) {
         this.grup = grup;
+    }
+
+    @Override
+    public String toString() {
+        return "Alumnes{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", cognoms='" + cognoms + '\'' +
+                ", email='" + email + '\'' +
+                ", cicle='" + cicle + '\'' +
+                ", curs=" + curs +
+                ", grup='" + grup + '\'' +
+                '}';
     }
 }

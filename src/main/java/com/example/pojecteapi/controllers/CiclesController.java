@@ -1,7 +1,8 @@
-package com.example.pojecteapi;
+package com.example.pojecteapi.controllers;
 
 import java.util.ArrayList;
 
+import com.example.pojecteapi.LListaCursos;
 import org.springframework.web.bind.annotation.GetMapping;
 
 public class CiclesController {
