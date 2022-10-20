@@ -37,18 +37,6 @@ public class AlumnesController {
 		y.add(new AlumnesGrup("B", "D", "DAM"));
 		return y;
 	}
-	//Variable de "/alumnes/grup".
-//    @GetMapping("/grup/{grup}")
-//    public ArrayList<AlumnesGrup> alumnesgrup(@PathVariable(value = "grup")String grup){
-//    	ArrayList <AlumnesGrup> g = new ArrayList<>();
-//    	for(AlumnesGrup x:y) {
-//    		if(x.getGrup().equalsIgnoreCase(grup)) {
-//    			g.add(x);
-//    		}
-//    	}
-//    	return y;
-//		}
-
 
 	@GetMapping("/modul/faltes")
 	public ArrayList<AlumnesModFaltes> llistatAlModFal() {
