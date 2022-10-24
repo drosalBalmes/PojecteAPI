@@ -117,7 +117,7 @@ public class AlumnesController {
 		List<Long> i = new ArrayList<>();
 		int j = 0;
 		for (Alumnes a : llistatAlumnes) {
-			if ((a.getCicle() + a.getCurs()).equals(grup)) {
+			if ((a.getCicle() + a.getCurs()).equals(grup.toUpperCase())) {
 				id = a.getId();
 				if (alumnRep.findById(id).isPresent()) {
 					i.add(a.getId());
