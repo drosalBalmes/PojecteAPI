@@ -2,19 +2,25 @@ package com.example.pojecteapi.controllers;
 
 import com.example.pojecteapi.*;
 import com.example.pojecteapi.repositoris.AlumnesRepository;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 
 @RestController
 @RequestMapping("alumnes")
+
 public class AlumnesController {
 	@Autowired //per instanciar automaticament cuan sigui necesari
 	AlumnesRepository alumnRep;
@@ -72,6 +78,38 @@ public class AlumnesController {
 		}
 	}
 
+    
+ 
+    @PostMapping("/crea_alumne")
+    public Alumnes nouAlumn(@RequestBody Alumnes nou) {
+		return alumnRep.save(nou);
+    	
+    }
+  
+    @PutMapping("/crea_alumne/{id}")
+    public Alumnes editarAlumne(@RequestBody Alumnes editar, @PathVariable Long id) {
+    	if (alumnRep.existsById(id)) {
+    	editar.setId(id);
+		return alumnRep.save(editar);
+    }else {
+    	return null;
+    	}
+    }
+    
+    
+    @DeleteMapping("/eliminarData/{id}")
+    public Alumnes eliminar(@PathVariable Long id) {
+    	if (alumnRep.existsById(id)) {
+    		Alumnes alumne = alumnRep.findById(id).get();
+    		alumnRep.deleteById(id);
+    		return alumne;
+    	}else {
+    		return null;
+    	}
+    	
+    }  
+    
+
 	@GetMapping("/grup/{grup}")
 	public Iterable<Alumnes> alumnesgrup(@PathVariable String grup) {
 		List<Alumnes> llistatAlumnes = llistatAlumnes();
@@ -91,3 +129,5 @@ public class AlumnesController {
 	}
 
 }
+
+
